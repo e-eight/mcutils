@@ -12,10 +12,9 @@ set (TARGET mcutils)
 
 add_library(${TARGET} STATIC ${SOURCES})
 
+target_link_libraries(${TARGET} PUBLIC fmt::fmt)
+
 find_package(Eigen3 REQUIRED)
 target_link_libraries(${TARGET} PUBLIC Eigen3::Eigen)
-
-find_package(fmt REQUIRED)
-target_link_libraries(${TARGET} PUBLIC fmt::fmt)
 
 target_include_directories(${TARGET} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/..)
