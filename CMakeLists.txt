@@ -6,11 +6,12 @@ endif()
 
 project(mcutils LANGUAGES CXX)
 
-set (SOURCES parsing.cpp parsing.h gsl.h io.h memoizer.h profiling.h
+set(HEADERS parsing.h gsl.h io.h memoizer.h profiling.h
             vector_tuple.h arithmetic.h deprecated.h eigen.h)
-set (TARGET mcutils)
+set(SOURCES parsing.cpp)
+set(TARGET mcutils)
 
-add_library(${TARGET} STATIC ${SOURCES})
+add_library(${TARGET} STATIC ${SOURCES} ${HEADERS})
 
 target_link_libraries(${TARGET} PUBLIC fmt::fmt)
 
